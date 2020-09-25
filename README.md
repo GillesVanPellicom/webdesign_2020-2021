@@ -1,5 +1,5 @@
 # Webdesign 2020-2021
-Tests for the webdesign in the 6th grade IT management at Atheneum Boom.
+Exercises for the webdesign in the 6th grade IT management at Atheneum Boom.
 
 Please note that these exercises may not be in working order.
 Also, it is very possible some exercises are not present for one reason or another.
