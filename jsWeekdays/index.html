@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function dag() {
+            let weekdag = prompt("Vul een weekdag in");
+            switch (weekdag) {
+                case "maandag":
+                    document.write("eww");
+                    document.bgColor = "red";
+                    document.fgColor = "green";
+                    break;
+
+                case "dinsdag":
+                    document.write("dinsdagdag.");
+                    document.bgColor = "orange";
+                    document.fgColor = "blue";
+                    break;
+
+                case "woensdag":
+                    document.write("woensdag is ok");
+                    document.bgColor = "blue";
+                    document.fgColor = "green";
+                    break;
+
+                case "donderdag":
+                    document.write("donderdag is de dag voor vrijdag");
+                    document.bgColor = "purple";
+                    document.fgColor = "black";
+                    break;
+
+                case "vrijdag":
+                    document.write("vrijdag is goed dag");
+                    document.bgColor = "orange";
+                    document.fgColor = "green";
+                    break;
+
+                case "zaterdag":
+                    document.write("hoe leuk");
+                    document.bgColor = "green";
+                    document.fgColor = "green";
+                    break;
+
+                case "zondag":
+                    document.write("hoe christelijk");
+                    document.bgColor = "blue";
+                    document.fgColor = "green";
+                    break;
+
+                default:
+                    document.write("Niet ok.");
+            }
+        }
+    </script>
+</head>
+
+<body onload="dag()">
+
+</body>
+
+</html>
