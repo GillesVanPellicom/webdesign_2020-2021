@@ -8,6 +8,7 @@
         body {
             color: white    ;
             background-color: #242424;
+            font-family: Arial, Helvetica, sans-serif;
         }
         #text {
             
@@ -19,5 +20,13 @@
     <button onclick="addStudents()">Toevoegen</button> <br> <br>
     <table id="main" border="1"></table>
     <p id="text"></p>
+    <br><br>
+    <form action="" id="form1" method="GET" name="form1" onsubmit="handleForm(); return false">
+        <input type="text" name="woord1" id="woord1"><br>
+        <input type="text" name="woord2" id="woord2"><br>
+        <input type="submit" value="Test">
+    </form>
+    <p id="text2"></p>
+
 </body>
 </html>

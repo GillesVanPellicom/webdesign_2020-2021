@@ -22,16 +22,25 @@ function addStudents() {
 }
 
 function generateTable() {
+    //reset
     table.innerHTML = "";
+    totaleLeeftijd = 0;
+    aantealMinderjarigen = 0;
+
     table.innerHTML += ("<tr><td><b>Naam</b></td><td><b>Klas</b></td><td><b>Geslacht</b></td><td><b>Geboortejaar</b></td><td><b>Leeftijd</b></td></tr>");
     for (let i = 0; i < hoeveelheid; i++) {
         let leeftijd = (new Date().getFullYear()) - parseInt(leerlingen[i].geboortejaar);
         totaleLeeftijd = totaleLeeftijd + leeftijd;
         table.innerHTML += ("<tr><td>" + leerlingen[i].naam + "</td><td>" + leerlingen[i].klas + "</td><td>" + leerlingen[i].geslacht + "</td><td>" + leerlingen[i].geboortejaar + "</td><td>" + leeftijd + "</td></tr>");
 
-        let gem = totaleLeeftijd / leerlingen.length;
-        document.getElementById("text").innerHTML = ("Gemiddelde leeftijd: " + gem);
+        if (leerlingen[i].leeftijd < 18) {
+            aantealMinderjarigen++;
+        }
     }
+    let gem = totaleLeeftijd / leerlingen.length;
+    document.getElementById("text").innerHTML += ("Totale leeftijd: " + totaleLeeftijd + "<br>");
+    document.getElementById("text").innerHTML += ("Gemiddelde leeftijd: " + gem + "<br>");
+    document.getElementById("text").innerHTML += ("Aantal minderjarigen: " + aantealMinderjarigen + "<br>");
 }
 
 function getYear(num) {
@@ -70,4 +79,24 @@ function getGeslacht(num) {
         }
     }
     return temp
+}
+
+function handleForm() {
+    let w1 = String(document.forms["form1"]["woord1"].value);
+    let w2 = String(document.forms["form1"]["woord2"].value);
+    let w1a = new Array();
+    let w2a = new Array();
+
+    for (let i = 0; i < w1.length; i++) {
+        w1a[i] = w1.charAt(i);
+    }
+    for (let i = 0; i < w2.length; i++) {
+        w2a[i] = w2.charAt(i);
+    }
+
+    if (w1 == w2) {
+        for (let i = 0; i < w1.length; i++) {
+            document.getElementById("text2").innerHTML += (w1[i]+"="+w2[i]+"<br>");
+        }
+    }
 }
