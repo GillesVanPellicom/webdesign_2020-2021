@@ -98,5 +98,23 @@ function handleForm() {
         for (let i = 0; i < w1.length; i++) {
             document.getElementById("text2").innerHTML += (w1[i]+"="+w2[i]+"<br>");
         }
+    } else if (w1.length <= w2.length || w1.length >= w2.length) {
+        if (w1.length < w2.length) {
+            for (let i = w1.length+1; i < w2.length-w1.length; i++) {
+                w1[i] = "/";
+            }
+        }
+        if (w2.length < w1.length) {
+            for (let i = w2.length+1; i < w1.length-w2.length; i++) {
+                w2[i] = "/";
+            }
+        }
+        for (let i = 0; i < array.length; i++) {
+            if (w1[i] == w2[i]) {
+                document.getElementById("text2").innerHTML += (w1[i]+"="+w2[i]+"<br>");
+            } else if (w1[i] != w2[i]) {
+                document.getElementById("text2").innerHTML += (w1[i]+"!="+w2[i]+"<br>");
+            }
+        }
     }
 }
