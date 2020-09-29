@@ -6,7 +6,7 @@ var totaleLeeftijd = 0;
 function addStudents() {
     hoeveelheid = hoeveelheid + prompt("Hoeveel leerlingen wilt u toevoegen?", "1");
     if (hoeveelheid != NaN) {
-        if (hoeveelheid >= 0) {
+        if (hoeveelheid > 0) {
             for (let i = 0; i < hoeveelheid; i++) {
                 let num = i + 1;
                 let leerling = {
