@@ -96,25 +96,17 @@ function handleForm() {
 
     if (w1 == w2) {
         for (let i = 0; i < w1.length; i++) {
-            document.getElementById("text2").innerHTML += (w1[i]+"="+w2[i]+"<br>");
+            document.getElementById("text2").innerHTML += (w1[i] + "=" + w2[i] + "<br>");
         }
-    } else if (w1.length <= w2.length || w1.length >= w2.length) {
-        if (w1.length < w2.length) {
-            for (let i = w1.length+1; i < w2.length-w1.length; i++) {
-                w1[i] = "/";
-            }
-        }
-        if (w2.length < w1.length) {
-            for (let i = w2.length+1; i < w1.length-w2.length; i++) {
-                w2[i] = "/";
-            }
-        }
-        for (let i = 0; i < array.length; i++) {
-            if (w1[i] == w2[i]) {
+    } else if (w1.length != w2.length) {
+        document.getElementById("text2").innerHTML += ("De wachtwoorden zijn niet even lang<br>");
+    } else {
+        for (let i = 0; i < w1.length; i++) {
+            if (w1a[i] == w2a[i]) {
                 document.getElementById("text2").innerHTML += (w1[i]+"="+w2[i]+"<br>");
-            } else if (w1[i] != w2[i]) {
+            } else {
                 document.getElementById("text2").innerHTML += (w1[i]+"!="+w2[i]+"<br>");
-            }
+            }   
         }
     }
 }
