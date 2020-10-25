@@ -1,0 +1,187 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #foot {
+        padding: 0px;
+        width: 1000;
+        border: 1px solid black;
+        margin-left: 14%;
+        text-align: center;
+        margin-top: 1%;
+        background-color: gray;
+        margin-bottom: 1%;
+        visibility: hidden;
+    }
+
+    header {
+        margin-left: 2%;
+        margin-right: 2%;
+        background-color: white;
+    }
+
+    #container {
+        padding: 0px;
+        width: 1000;
+        border: 1px solid black;
+        margin-left: 14%;
+        text-align: center;
+        margin-top: 1%;
+        background-color: gray;
+    }
+
+    #title {
+        color: black;
+        padding: 3%;
+    }
+
+    #content {
+        width: 450px;
+        height: 450px;
+        background-color: white;
+        margin-left: 2%;
+        margin-bottom: 2%;
+
+    }
+
+    .boxes {
+        width: 110px;
+        height: 110px;
+        background-color: white;
+        display: inline-block;
+        margin-top: 4%;
+    }
+
+    .colorboxes {
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+    }
+
+    #yellowbox {
+        background-color: yellow;
+    }
+
+    #bluebox {
+        background-color: blue;
+    }
+
+    #redbox {
+        background-color: red;
+    }
+
+    button {
+        margin-top: 67%;
+    }
+
+    #bottomrow {
+        height: 300px;
+        width: 800;
+    }
+</style>
+<script>
+    var isFooterHidden = true;
+
+    function changeFooterState() {
+        if (isFooterHidden) {
+            document.getElementById("foot").style.visibility = "visible";
+            isFooterHidden = false;
+        } else {
+            document.getElementById("foot").style.visibility = "hidden";
+            isFooterHidden = true;
+        }
+    }
+
+    var isFooterChanged = true;
+
+    function changeFooterText() {
+        if (isFooterChanged) {
+            document.getElementById("foot").innerHTML = "Andere tekst";
+            isFooterChanged = false;
+        } else {
+            document.getElementById("foot").innerHTML = "copyright me";
+            isFooterChanged = true;
+        }
+    }
+
+    var areColorsSwapped = true;
+
+    function swapColors() {
+        let c1 = document.getElementById("yellowbox");
+        let c2 = document.getElementById("bluebox");
+        let c3 = document.getElementById("redbox");
+        let c = document.getElementById("content");
+        let p = document.getElementById("schilder");
+        if (!areColorsSwapped) {
+            c1.style.backgroundColor = "yellow";
+            c2.style.backgroundColor = "blue";
+            c3.style.backgroundColor = "red";
+            c.style.backgroundColor = "white";
+            p.style.color = "black";
+            areColorsSwapped = true;
+        } else {
+            c1.style.backgroundColor = "red";
+            c2.style.backgroundColor = "yellow";
+            c3.style.backgroundColor = "blue";
+            c.style.backgroundColor = "purple";
+            p.style.color = "yellow";
+            areColorsSwapped = false;
+        }
+    }
+
+    function setSchilder() {
+        let temp = prompt("Vul schildernaam in aub", 0)
+        if (temp != null) { 
+            document.getElementById("schilder").innerHTML = prompt("Voor een schilder in aub", 0);
+        } else {
+            setSchilder()
+        }
+    }
+
+    function reset() {
+        document.getElementById("schilder").innerHTML = " ";
+        isFooterChanged = false;
+        isFooterHidden = false;
+        areColorsSwapped = false;
+        changeFooterState();
+        changeFooterText();
+        swapColors();
+    }
+</script>
+
+<body>
+    
+    <div id="container">
+        <header>
+            <h1 id="title">Toets webdesign - 6INF - Javascript</h1>
+        </header>
+        <div id="content">
+            <div id="yellowbox" class="colorboxes"></div>
+            <div id="bluebox" class="colorboxes"></div>
+            <div id="redbox" class="colorboxes"></div>
+            <p id="schilder"></p>
+        </div>
+        <div id="bottomrow">
+            <div class="boxes" id=""><button onclick="swapColors()">Swap color</button></div>
+            <div class="boxes" id="b2"><button onclick="changeFooterState()">Show footer</button></div>
+            <div class="boxes" id="b3"><button onclick="changeFooterText()">Change footer</button></div>
+            <div class="boxes" id="b4"><button onclick="setSchilder()">Add title</button></div>
+            <div class="boxes" id="b5"><button onclick="reset()">Reset</button></div>
+        </div>
+    </div>
+    <footer id="foot">
+        copyright me
+    </footer>
+</body>
+
+</html>
